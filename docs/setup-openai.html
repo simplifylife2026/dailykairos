@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OpenAI Setup – Daily Kairos Help</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<header class="mobile-header">
+  <div class="mobile-brand-wrap">
+    <img src="img/DailyKairosLogo.png" alt="" class="mobile-logo" />
+    <span class="mobile-brand">Daily Kairos</span>
+  </div>
+  <button class="hamburger" aria-label="Open menu" onclick="openDrawer()">&#9776;</button>
+</header>
+
+<div class="mobile-nav-drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Navigation">
+  <div class="drawer-backdrop" onclick="closeDrawer()"></div>
+  <nav class="drawer-panel">
+    <div class="sidebar-brand">
+      <img src="img/DailyKairosLogo.png" alt="Daily Kairos" class="sidebar-logo" />
+      <span class="app-name">Daily <a href="kairos.html" class="kairos-egg"><span class="kairos-en">Kairos</span><span class="kairos-gr">Καιρός</span></a></span>
+      <span class="app-tagline">Help &amp; Setup Guide</span>
+    </div>
+    <div class="sidebar-nav">
+      <span class="nav-section-label">Overview</span>
+      <a href="index.html" class="nav-link"><span class="nav-icon">📖</span> What is Daily Kairos?</a>
+      <div class="nav-divider"></div>
+      <span class="nav-section-label">Setup</span>
+      <a href="setup-esv.html" class="nav-link"><span class="nav-icon"><svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="18" height="18" rx="4" fill="#7B3D0B"/><rect x="8.25" y="3.5" width="1.5" height="11" fill="white"/><rect x="4" y="7" width="10" height="1.5" fill="white"/></svg></span> ESV Bible API</a>
+      <a href="setup-apple-intelligence.html" class="nav-link"><span class="nav-icon"><span class="ai-icon"></span></span> Apple Intelligence</a>
+      <a href="setup-openai.html" class="nav-link" aria-current="page"><span class="nav-icon"><svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="9" cy="9" r="9" fill="#000"/><g transform="translate(9,9)" stroke="white" stroke-width="1.3" fill="none"><ellipse rx="3.2" ry="5.5" transform="rotate(0)"/><ellipse rx="3.2" ry="5.5" transform="rotate(60)"/><ellipse rx="3.2" ry="5.5" transform="rotate(120)"/></g></svg></span> OpenAI</a>
+      <a href="setup-anthropic.html" class="nav-link"><span class="nav-icon">✦</span> Anthropic (Claude)</a>
+      <a href="setup-gemini.html" class="nav-link"><span class="nav-icon">💎</span> Google Gemini</a>
+      <a href="setup-custom.html" class="nav-link"><span class="nav-icon">⚙️</span> Custom Provider</a>
+      <div class="nav-divider"></div>
+      <span class="nav-section-label">Support</span>
+      <a href="contact.html" class="nav-link"><span class="nav-icon">✉️</span> Contact</a>
+    </div>
+  </nav>
+</div>
+
+<div class="shell">
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <img src="img/DailyKairosLogo.png" alt="Daily Kairos" class="sidebar-logo" />
+      <span class="app-name">Daily <a href="kairos.html" class="kairos-egg"><span class="kairos-en">Kairos</span><span class="kairos-gr">Καιρός</span></a></span>
+      <span class="app-tagline">Help &amp; Setup Guide</span>
+    </div>
+    <nav class="sidebar-nav">
+      <span class="nav-section-label">Overview</span>
+      <a href="index.html" class="nav-link"><span class="nav-icon">📖</span> What is Daily Kairos?</a>
+      <div class="nav-divider"></div>
+      <span class="nav-section-label">Setup</span>
+      <a href="setup-esv.html" class="nav-link"><span class="nav-icon"><svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="18" height="18" rx="4" fill="#7B3D0B"/><rect x="8.25" y="3.5" width="1.5" height="11" fill="white"/><rect x="4" y="7" width="10" height="1.5" fill="white"/></svg></span> ESV Bible API</a>
+      <a href="setup-apple-intelligence.html" class="nav-link"><span class="nav-icon"><span class="ai-icon"></span></span> Apple Intelligence</a>
+      <a href="setup-openai.html" class="nav-link" aria-current="page"><span class="nav-icon"><svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="9" cy="9" r="9" fill="#000"/><g transform="translate(9,9)" stroke="white" stroke-width="1.3" fill="none"><ellipse rx="3.2" ry="5.5" transform="rotate(0)"/><ellipse rx="3.2" ry="5.5" transform="rotate(60)"/><ellipse rx="3.2" ry="5.5" transform="rotate(120)"/></g></svg></span> OpenAI</a>
+      <a href="setup-anthropic.html" class="nav-link"><span class="nav-icon">✦</span> Anthropic (Claude)</a>
+      <a href="setup-gemini.html" class="nav-link"><span class="nav-icon">💎</span> Google Gemini</a>
+      <a href="setup-custom.html" class="nav-link"><span class="nav-icon">⚙️</span> Custom Provider</a>
+      <div class="nav-divider"></div>
+      <span class="nav-section-label">Support</span>
+      <a href="contact.html" class="nav-link"><span class="nav-icon">✉️</span> Contact</a>
+    </nav>
+  </aside>
+
+  <main class="content">
+    <div class="content-inner">
+
+      <div class="page-header">
+        <p class="page-eyebrow">Setup · AI Provider</p>
+        <h1 class="page-title">OpenAI</h1>
+        <p class="page-intro">
+          Connect Daily Kairos to OpenAI to use <strong>GPT-4o</strong> and other OpenAI models for
+          generating Bible reflections. You'll need an OpenAI account and an API key.
+        </p>
+      </div>
+
+      <!-- Part 1: Create the key -->
+      <div class="section">
+        <h2 class="section-title"><span class="section-icon">🌐</span> Step 1 — Create an OpenAI API key</h2>
+        <div class="steps">
+
+          <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-body">
+              <p>Go to <a href="https://platform.openai.com" target="_blank" rel="noopener">platform.openai.com</a> and sign in. If you don't have an account yet, click <strong>Sign up</strong> and follow the prompts.</p>
+              <div class="screenshot-wrap">
+                <img src="img/openai_login.png" class="screenshot-img" alt="OpenAI Platform sign-in page" />
+              </div>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-body">
+              <p>Once logged in, click <strong>API keys</strong> in the left sidebar — or navigate directly to <a href="https://platform.openai.com/api-keys" target="_blank" rel="noopener">platform.openai.com/api-keys</a>. Click <strong>+ Create new secret key</strong>.</p>
+              <div class="screenshot-wrap">
+                <img src="img/openai_createkey.png" class="screenshot-img" alt="OpenAI API Keys dashboard with 'Create new secret key' button" />
+              </div>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-body">
+              <p>In the dialog, set the name to <strong>Daily Kairos</strong>, leave Permissions as <strong>All</strong>, and click <strong>Create secret key</strong>.</p>
+              <div class="screenshot-wrap">
+                <img src="img/openai_dk_key.png" class="screenshot-img" alt="'Create new secret key' dialog with 'Daily Kairos' entered as the name" />
+              </div>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-num">4</div>
+            <div class="step-body">
+              <p>Click <strong>Copy</strong> to copy your key — then click <strong>Done</strong>. <strong>This is the only time OpenAI will show you this key.</strong> If you close without copying, you'll need to create a new one.</p>
+              <div class="screenshot-wrap">
+                <img src="img/openai_keygenerated.png" class="screenshot-img" alt="'Save your key' dialog showing the generated key with a Copy button" />
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="callout warning">
+        <div class="callout-title">⚠️ Copy before closing</div>
+        OpenAI displays your key only once. If you close the dialog without copying it, you'll need to create a new key.
+      </div>
+
+      <!-- Part 2: Enter in app -->
+      <div class="section">
+        <h2 class="section-title"><span class="section-icon">📱</span> Step 2 — Enter the key in Daily Kairos</h2>
+        <div class="steps">
+
+          <div class="step">
+            <div class="step-num">5</div>
+            <div class="step-body">
+              <p>Open <strong>Daily Kairos</strong>, tap the <strong>Settings</strong> icon (⚙️), then tap <strong>AI Provider</strong>. You'll see the provider screen with On-Device AI as the default. Tap <strong>Add Provider</strong>.</p>
+              <div class="screenshot-wrap">
+                <img src="img/empty_providers.png" class="screenshot-img" alt="AI Provider screen showing On-Device AI as default with Add Provider button" />
+              </div>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-num">6</div>
+            <div class="step-body">
+              <p>A menu appears listing the available providers. Select <strong>OpenAI</strong>.</p>
+              <div class="screenshot-wrap">
+                <img src="img/providers_openai_selection.png" class="screenshot-img" alt="Add Provider dropdown with OpenAI highlighted" />
+              </div>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-num">7</div>
+            <div class="step-body">
+              <p>The <strong>Add OpenAI</strong> configuration screen opens. Paste your API key into the <strong>API Key</strong> field (starting with <code>sk-</code>). Organization ID is optional — leave it blank unless your OpenAI account requires it.</p>
+              <div class="screenshot-wrap">
+                <img src="img/openai_configuration_page.png" class="screenshot-img" alt="Add OpenAI screen with API Key, Organization ID, and Model fields" />
+              </div>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-num">8</div>
+            <div class="step-body">
+              <p>Once your key is entered, tap the <strong>Model</strong> field. A dropdown will load the list of models available on your account — select the one you'd like to use (e.g. <strong>gpt-4o-mini</strong> for a good balance of speed and quality).</p>
+              <div class="screenshot-wrap">
+                <img src="img/openai_modelselection_page.png" class="screenshot-img" alt="Model dropdown showing available OpenAI models" />
+              </div>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-num">9</div>
+            <div class="step-body">
+              <p>Tap <strong>Verify &amp; Save</strong> in the top-right corner. Daily Kairos will test your key and save the configuration if everything checks out.</p>
+              <p style="margin-top: 10px;">If there's a problem — such as insufficient credits or an incorrect key — you'll see an error message at the bottom of the screen.</p>
+              <div class="screenshot-wrap">
+                <img src="img/openai_noFunds_page.png" class="screenshot-img" alt="Add OpenAI screen showing a 'no credits' error message" />
+              </div>
+              <p style="margin-top: 12px;">If the verification succeeds, OpenAI is saved and set as your active provider. You'll be returned to the AI Provider screen, which will show <strong>OpenAI</strong> as the active selection.</p>
+              <div class="screenshot-wrap">
+                <img src="img/providers_openai_configured.png" class="screenshot-img" alt="AI Provider screen showing OpenAI as the active provider" />
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Billing note -->
+      <div class="callout">
+        <div class="callout-title">💳 Billing &amp; usage</div>
+        OpenAI API access is pay-as-you-go — you are charged per token used. A typical Daily Kairos reflection costs a fraction of a cent. You can set monthly spending limits at
+        <a href="https://platform.openai.com/settings/organization/limits" target="_blank" rel="noopener">platform.openai.com → Settings → Limits</a>.
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<script>
+  function openDrawer() { document.getElementById('drawer').classList.add('open'); document.body.style.overflow = 'hidden'; }
+  function closeDrawer() { document.getElementById('drawer').classList.remove('open'); document.body.style.overflow = ''; }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawer(); });
+</script>
+</body>
+</html>

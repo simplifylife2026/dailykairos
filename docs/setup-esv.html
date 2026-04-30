@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ESV Bible API – Daily Kairos Help</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<header class="mobile-header">
+  <div class="mobile-brand-wrap">
+    <img src="img/DailyKairosLogo.png" alt="" class="mobile-logo" />
+    <span class="mobile-brand">Daily Kairos</span>
+  </div>
+  <button class="hamburger" aria-label="Open menu" onclick="openDrawer()">&#9776;</button>
+</header>
+
+<div class="mobile-nav-drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Navigation">
+  <div class="drawer-backdrop" onclick="closeDrawer()"></div>
+  <nav class="drawer-panel">
+    <div class="sidebar-brand">
+      <img src="img/DailyKairosLogo.png" alt="Daily Kairos" class="sidebar-logo" />
+      <span class="app-name">Daily <a href="kairos.html" class="kairos-egg"><span class="kairos-en">Kairos</span><span class="kairos-gr">Καιρός</span></a></span>
+      <span class="app-tagline">Help &amp; Setup Guide</span>
+    </div>
+    <div class="sidebar-nav">
+      <span class="nav-section-label">Overview</span>
+      <a href="index.html" class="nav-link">
+        <span class="nav-icon">📖</span> What is Daily Kairos?
+      </a>
+      <div class="nav-divider"></div>
+      <span class="nav-section-label">Setup</span>
+      <a href="setup-esv.html" class="nav-link" aria-current="page">
+        <span class="nav-icon"><svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="18" height="18" rx="4" fill="#7B3D0B"/><rect x="8.25" y="3.5" width="1.5" height="11" fill="white"/><rect x="4" y="7" width="10" height="1.5" fill="white"/></svg></span> ESV Bible API
+      </a>
+      <a href="setup-apple-intelligence.html" class="nav-link">
+        <span class="nav-icon"><span class="ai-icon"></span></span> Apple Intelligence
+      </a>
+      <a href="setup-openai.html" class="nav-link">
+        <span class="nav-icon"><svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="9" cy="9" r="9" fill="#000"/><g transform="translate(9,9)" stroke="white" stroke-width="1.3" fill="none"><ellipse rx="3.2" ry="5.5" transform="rotate(0)"/><ellipse rx="3.2" ry="5.5" transform="rotate(60)"/><ellipse rx="3.2" ry="5.5" transform="rotate(120)"/></g></svg></span> OpenAI
+      </a>
+      <a href="setup-anthropic.html" class="nav-link">
+        <span class="nav-icon">✦</span> Anthropic (Claude)
+      </a>
+      <a href="setup-gemini.html" class="nav-link">
+        <span class="nav-icon">💎</span> Google Gemini
+      </a>
+      <a href="setup-custom.html" class="nav-link">
+        <span class="nav-icon">⚙️</span> Custom Provider
+      </a>
+      <div class="nav-divider"></div>
+      <span class="nav-section-label">Support</span>
+      <a href="contact.html" class="nav-link">
+        <span class="nav-icon">✉️</span> Contact
+      </a>
+    </div>
+  </nav>
+</div>
+
+<div class="shell">
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <img src="img/DailyKairosLogo.png" alt="Daily Kairos" class="sidebar-logo" />
+      <span class="app-name">Daily <a href="kairos.html" class="kairos-egg"><span class="kairos-en">Kairos</span><span class="kairos-gr">Καιρός</span></a></span>
+      <span class="app-tagline">Help &amp; Setup Guide</span>
+    </div>
+    <nav class="sidebar-nav">
+      <span class="nav-section-label">Overview</span>
+      <a href="index.html" class="nav-link">
+        <span class="nav-icon">📖</span> What is Daily Kairos?
+      </a>
+      <div class="nav-divider"></div>
+      <span class="nav-section-label">Setup</span>
+      <a href="setup-esv.html" class="nav-link" aria-current="page">
+        <span class="nav-icon"><svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="18" height="18" rx="4" fill="#7B3D0B"/><rect x="8.25" y="3.5" width="1.5" height="11" fill="white"/><rect x="4" y="7" width="10" height="1.5" fill="white"/></svg></span> ESV Bible API
+      </a>
+      <a href="setup-apple-intelligence.html" class="nav-link">
+        <span class="nav-icon"><span class="ai-icon"></span></span> Apple Intelligence
+      </a>
+      <a href="setup-openai.html" class="nav-link">
+        <span class="nav-icon"><svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="9" cy="9" r="9" fill="#000"/><g transform="translate(9,9)" stroke="white" stroke-width="1.3" fill="none"><ellipse rx="3.2" ry="5.5" transform="rotate(0)"/><ellipse rx="3.2" ry="5.5" transform="rotate(60)"/><ellipse rx="3.2" ry="5.5" transform="rotate(120)"/></g></svg></span> OpenAI
+      </a>
+      <a href="setup-anthropic.html" class="nav-link">
+        <span class="nav-icon">✦</span> Anthropic (Claude)
+      </a>
+      <a href="setup-gemini.html" class="nav-link">
+        <span class="nav-icon">💎</span> Google Gemini
+      </a>
+      <a href="setup-custom.html" class="nav-link">
+        <span class="nav-icon">⚙️</span> Custom Provider
+      </a>
+      <div class="nav-divider"></div>
+      <span class="nav-section-label">Support</span>
+      <a href="contact.html" class="nav-link">
+        <span class="nav-icon">✉️</span> Contact
+      </a>
+    </nav>
+  </aside>
+
+  <main class="content">
+    <div class="content-inner">
+
+      <div class="page-header">
+        <p class="page-eyebrow">Setup · Required</p>
+        <h1 class="page-title">ESV Bible API</h1>
+        <p class="page-intro">
+          Daily Kairos uses the <strong>ESV API</strong> from Crossway to retrieve Scripture passages.
+          A free API key is required — registration takes about two minutes.
+        </p>
+      </div>
+
+      <!-- Part 1: Get the key -->
+      <div class="section">
+        <h2 class="section-title">
+          <span class="section-icon">🌐</span> Step 1 — Create your ESV API key
+        </h2>
+        <div class="steps">
+
+          <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-body">
+              <p>Open your browser and go to <a href="https://api.esv.org/login" target="_blank" rel="noopener">api.esv.org/login</a>. On the Sign In page, click <strong>Create an account</strong> to register for a free Crossway account. (If you already have one, sign in and skip to step 3.)</p>
+              <div class="screenshot-wrap">
+                <img src="img/esv_login_screen.png" class="screenshot-img" alt="ESV API Sign In page with 'Create an account' link" />
+              </div>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-body">
+              <p>Fill in the <strong>Create an Account</strong> form: first name, last name, email address (twice), and a password (twice). Accept the Terms of Service and click <strong>Submit</strong>.</p>
+              <div class="screenshot-wrap">
+                <img src="img/esv_create_account.png" class="screenshot-img" alt="ESV Create an Account form" />
+              </div>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-body">
+              <p>After signing in, go to <a href="https://www.esv.org" target="_blank" rel="noopener">esv.org</a>. Scroll to the very bottom of the page and click <strong>Developer Resources</strong> in the footer.</p>
+              <div class="screenshot-wrap">
+                <img src="img/esv_developer_resources.png" class="screenshot-img" alt="ESV website footer with 'Developer Resources' link circled" />
+              </div>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-num">4</div>
+            <div class="step-body">
+              <p>You're now on the ESV API documentation site. In the left sidebar, click <strong>Overview</strong>.</p>
+              <div class="screenshot-wrap">
+                <img src="img/esv_overview.png" class="screenshot-img" alt="ESV API documentation sidebar with 'Overview' item circled" />
+              </div>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-num">5</div>
+            <div class="step-body">
+              <p>On the Overview page, find and click the <strong>Create an API Application</strong> link.</p>
+              <div class="screenshot-wrap">
+                <img src="img/esv_createAPI_launch.png" class="screenshot-img" alt="ESV API Overview page with 'Create an API Application' link circled" />
+              </div>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-num">6</div>
+            <div class="step-body">
+              <p>Fill out the application form:</p>
+              <ul style="margin: 8px 0 8px 20px; display: flex; flex-direction: column; gap: 4px; font-size: 0.9rem; color: var(--text-muted);">
+                <li><strong>Application Name:</strong> Daily Kairos</li>
+                <li><strong>Intended Use:</strong> Personal study</li>
+                <li><strong>Use description:</strong> Key to be used with the Daily Kairos app</li>
+                <li><strong>API guidelines:</strong> Select <em>Yes</em></li>
+              </ul>
+              <p>Then click <strong>Create Application</strong>.</p>
+              <div class="screenshot-wrap">
+                <img src="img/esv_createAPIKey.png" class="screenshot-img" alt="Create an API Application form filled out for Daily Kairos" />
+              </div>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-num">7</div>
+            <div class="step-body">
+              <p>Your application is created. Under <strong>Application Keys</strong>, you'll see your API token. Click <strong>Copy</strong> (or select and copy the token) — you'll paste it into the app next.</p>
+              <div class="screenshot-wrap">
+                <img src="img/esv_apiKey.png" class="screenshot-img" alt="API Application page showing the generated token under 'Application Keys'" />
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Part 2: Enter in app -->
+      <div class="section">
+        <h2 class="section-title">
+          <span class="section-icon">📱</span> Step 2 — Enter the key in Daily Kairos
+        </h2>
+        <div class="steps">
+
+          <div class="step">
+            <div class="step-num">8</div>
+            <div class="step-body">
+              <p>Open <strong>Daily Kairos</strong> on your device and tap the <strong>Settings</strong> icon (⚙️) in the top-left corner.</p>
+              <div class="screenshot-wrap">
+                <img src="img/dk_settings.png" class="screenshot-img" alt="Daily Kairos main screen with arrow pointing to the Settings gear icon" />
+              </div>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-num">9</div>
+            <div class="step-body">
+              <p>In Settings, scroll down to the <strong>ESV API Key</strong> field and paste your token into the <em>Paste API key here</em> field.</p>
+              <div class="screenshot-wrap">
+                <img src="img/esv_apikey_field.png" class="screenshot-img" alt="Settings screen showing the ESV API Key field with 'Paste API key here' placeholder" />
+              </div>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-num">10</div>
+            <div class="step-body">
+              <p>Tap <strong>Save</strong> in the top-right corner to store your key, then tap <strong>Done</strong> to close Settings.</p>
+              <div class="screenshot-wrap">
+                <img src="img/esv_save_api_key.png" class="screenshot-img" alt="Settings screen with ESV API key filled in and arrow pointing to the Save button" />
+              </div>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-num">11</div>
+            <div class="step-body">
+              <p>Return to the main screen and look up any passage (e.g. <code>John 3:16</code>) to verify the key is working. The passage text should appear immediately.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="callout">
+        <div class="callout-title">💡 Rate limits</div>
+        The ESV API allows up to <strong>5,000 queries per day</strong> (1,000/hour, 60/minute) — well above what a typical Daily Kairos session requires. Up to 500 verses may be displayed or cached at a time.
+      </div>
+
+      <!-- Copyright & Usage -->
+      <div class="section mt-24">
+        <h2 class="section-title">
+          <span class="section-icon">©</span> Copyright &amp; Usage Requirements
+        </h2>
+        <p style="margin-bottom: 16px; color: var(--text-muted); font-size: 0.9rem;">
+          The ESV Bible text is copyrighted by Crossway. By using the ESV API you agree to display the
+          following attribution and comply with all usage restrictions.
+        </p>
+
+        <!-- Required attribution -->
+        <div class="card" style="margin-bottom: 16px;">
+          <h3 style="font-size: 0.9rem; font-weight: 700; color: var(--accent-head); margin-bottom: 10px;">Required copyright notice</h3>
+          <p style="font-size: 0.875rem; line-height: 1.65;">
+            All use of ESV text must include the following notice:
+          </p>
+          <blockquote style="margin: 12px 0 0; padding: 14px 16px; background: var(--bg-page); border-left: 3px solid var(--accent-head); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; font-size: 0.85rem; color: var(--text-primary); line-height: 1.6;">
+            Scripture quotations are from the ESV® Bible (The Holy Bible, English Standard Version®),
+            © 2001 by Crossway, a publishing ministry of Good News Publishers. Used by permission.
+            All rights reserved.
+          </blockquote>
+          <p style="margin-top: 10px; font-size: 0.85rem; color: var(--text-muted);">
+            In addition, the label <strong>"ESV"</strong> must appear alongside each quoted passage,
+            with a link to <a href="https://www.esv.org" target="_blank" rel="noopener">esv.org</a>.
+          </p>
+        </div>
+
+        <!-- Usage limits table -->
+        <div class="card" style="margin-bottom: 16px;">
+          <h3 style="font-size: 0.9rem; font-weight: 700; color: var(--accent-head); margin-bottom: 12px;">Usage limits</h3>
+          <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem;">
+            <tr style="border-bottom: 1px solid var(--border);">
+              <td style="padding: 8px 0; color: var(--text-muted); width: 55%;">Queries per day</td>
+              <td style="padding: 8px 0; font-weight: 600;">5,000</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border);">
+              <td style="padding: 8px 0; color: var(--text-muted);">Queries per hour</td>
+              <td style="padding: 8px 0; font-weight: 600;">1,000</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border);">
+              <td style="padding: 8px 0; color: var(--text-muted);">Queries per minute</td>
+              <td style="padding: 8px 0; font-weight: 600;">60</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border);">
+              <td style="padding: 8px 0; color: var(--text-muted);">Max verses per query</td>
+              <td style="padding: 8px 0; font-weight: 600;">500, or half a book (whichever is less)</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border);">
+              <td style="padding: 8px 0; color: var(--text-muted);">Max verses displayed per page</td>
+              <td style="padding: 8px 0; font-weight: 600;">500, or half a book (whichever is less)</td>
+            </tr>
+            <tr>
+              <td style="padding: 8px 0; color: var(--text-muted);">Max verses cached locally</td>
+              <td style="padding: 8px 0; font-weight: 600;">500</td>
+            </tr>
+          </table>
+        </div>
+
+        <!-- Restrictions -->
+        <div class="card" style="margin-bottom: 16px;">
+          <h3 style="font-size: 0.9rem; font-weight: 700; color: var(--accent-head); margin-bottom: 12px;">Restrictions</h3>
+          <div class="steps" style="gap: 10px;">
+            <div class="step">
+              <div class="step-num" style="background: var(--accent-head); font-size: 0.9rem;">🚫</div>
+              <div class="step-body">
+                <p><strong>Non-commercial use only.</strong> Your app may not charge access fees or display advertising or sponsorships alongside ESV content.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num" style="background: var(--accent-head); font-size: 0.9rem;">🚫</div>
+              <div class="step-body">
+                <p><strong>No text modification.</strong> The ESV text must be displayed exactly as returned. You may omit headings, footnotes, and cross-references using the API's parameters, but you may not alter the Scripture text itself.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num" style="background: var(--accent-head); font-size: 0.9rem;">🚫</div>
+              <div class="step-body">
+                <p><strong>No redistribution of large portions.</strong> You may redistribute up to 500 verses, provided they do not comprise more than 50% of a complete Bible book or 50% of the total text of your work.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num" style="background: var(--accent-head); font-size: 0.9rem;">🚫</div>
+              <div class="step-body">
+                <p><strong>No sharing or selling your API key.</strong> Your key is personal and may not be distributed to others. Crossway may revoke API access at any time and for any reason.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num" style="background: var(--accent-head); font-size: 0.9rem;">📋</div>
+              <div class="step-body">
+                <p><strong>Doctrinal alignment.</strong> Use of the ESV API must be consistent with the historic Christian understanding of doctrine, as determined by Crossway.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p style="font-size: 0.82rem; color: var(--text-muted);">
+          For the complete and authoritative terms, visit
+          <a href="https://api.esv.org" target="_blank" rel="noopener">api.esv.org</a>.
+          Crossway's full copyright and licensing information is available at
+          <a href="https://www.crossway.org" target="_blank" rel="noopener">crossway.org</a>.
+        </p>
+      </div>
+
+      <!-- Next step -->
+      <div class="section mt-24">
+        <h2 class="section-title">
+          <span class="section-icon">➡️</span> Next: set up your AI provider
+        </h2>
+        <p class="text-muted text-small" style="margin-bottom: 14px;">
+          Now that Scripture lookups are working, configure an AI provider to enable reflections.
+        </p>
+        <div class="setup-grid">
+          <a href="setup-openai.html" class="setup-link-card">
+            <span class="slc-icon">🤖</span>
+            <div class="slc-body"><div class="slc-title">OpenAI</div><div class="slc-desc">GPT-4o and other OpenAI models</div></div>
+            <span class="slc-arrow">›</span>
+          </a>
+          <a href="setup-anthropic.html" class="setup-link-card">
+            <span class="slc-icon">✦</span>
+            <div class="slc-body"><div class="slc-title">Anthropic (Claude)</div><div class="slc-desc">Claude Sonnet, Haiku, Opus</div></div>
+            <span class="slc-arrow">›</span>
+          </a>
+          <a href="setup-gemini.html" class="setup-link-card">
+            <span class="slc-icon">💎</span>
+            <div class="slc-body"><div class="slc-title">Google Gemini</div><div class="slc-desc">Gemini 1.5 and Gemini 2.0</div></div>
+            <span class="slc-arrow">›</span>
+          </a>
+          <a href="setup-custom.html" class="setup-link-card">
+            <span class="slc-icon">⚙️</span>
+            <div class="slc-body"><div class="slc-title">Custom Provider</div><div class="slc-desc">Groq, OpenRouter, or any compatible endpoint</div></div>
+            <span class="slc-arrow">›</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<script>
+  function openDrawer() {
+    document.getElementById('drawer').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeDrawer() {
+    document.getElementById('drawer').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawer(); });
+</script>
+</body>
+</html>

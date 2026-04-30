@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Καιρός – Daily Kairos</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .kairos-hero {
+      text-align: center;
+      padding: 48px 0 40px;
+      border-bottom: 1px solid var(--border-card);
+      margin-bottom: 40px;
+    }
+    .kairos-greek-display {
+      font-size: 5rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: -0.03em;
+      line-height: 1;
+      margin-bottom: 12px;
+      opacity: 0.9;
+    }
+    .kairos-pronunciation {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+    }
+    .kairos-verse {
+      background: var(--bg-card);
+      border-left: 4px solid var(--accent);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 24px 28px;
+      margin: 20px 0;
+    }
+    .kairos-verse-ref {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent-head);
+      margin-bottom: 10px;
+    }
+    .kairos-verse-text {
+      font-size: 1.1rem;
+      line-height: 1.75;
+      color: var(--text-primary);
+      font-style: italic;
+    }
+    .kairos-verse-greek {
+      margin-top: 10px;
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+    .kairos-section {
+      margin-bottom: 36px;
+    }
+    .kairos-section-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--accent-light);
+      color: var(--accent-head);
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-right: 10px;
+      flex-shrink: 0;
+      vertical-align: middle;
+    }
+    .kairos-section-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent-head);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: baseline;
+      gap: 0;
+    }
+    .kairos-section-arrow {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 400;
+      margin-left: 6px;
+    }
+    .kairos-mini-verse {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      font-style: italic;
+      border-left: 2px solid var(--border);
+      padding: 6px 14px;
+      margin: 10px 0 12px;
+      line-height: 1.6;
+    }
+    .kairos-closing {
+      background: var(--accent-light);
+      border-radius: var(--radius);
+      padding: 28px 28px;
+      margin-top: 40px;
+      text-align: center;
+    }
+    .kairos-closing p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--text-primary);
+      margin-bottom: 12px;
+    }
+    .kairos-closing p:last-child { margin-bottom: 0; }
+    .kairos-closing-sign {
+      font-size: 0.9rem;
+      color: var(--accent-head);
+      font-weight: 600;
+      letter-spacing: 0.06em;
+    }
+    .two-words {
+      display: flex;
+      gap: 16px;
+      margin: 16px 0;
+    }
+    .word-card {
+      flex: 1;
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius);
+      padding: 16px 18px;
+    }
+    .word-card .wc-greek {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+    .word-card .wc-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+    .word-card .wc-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    @media (max-width: 480px) {
+      .two-words { flex-direction: column; }
+      .kairos-greek-display { font-size: 3.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="mobile-header">
+  <div class="mobile-brand-wrap">
+    <img src="img/DailyKairosLogo.png" alt="" class="mobile-logo" />
+    <span class="mobile-brand">Daily Kairos</span>
+  </div>
+  <button class="hamburger" aria-label="Open menu" onclick="openDrawer()">&#9776;</button>
+</header>
+
+<div class="mobile-nav-drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Navigation">
+  <div class="drawer-backdrop" onclick="closeDrawer()"></div>
+  <nav class="drawer-panel">
+    <div class="sidebar-brand">
+      <img src="img/DailyKairosLogo.png" alt="Daily Kairos" class="sidebar-logo" />
+      <span class="app-name">Daily <a href="kairos.html" class="kairos-egg"><span class="kairos-en">Kairos</span><span class="kairos-gr">Καιρός</span></a></span>
+      <span class="app-tagline">Help &amp; Setup Guide</span>
+    </div>
+    <div class="sidebar-nav">
+      <span class="nav-section-label">Overview</span>
+      <a href="index.html" class="nav-link"><span class="nav-icon">📖</span> What is Daily Kairos?</a>
+      <div class="nav-divider"></div>
+      <span class="nav-section-label">Setup</span>
+      <a href="setup-esv.html" class="nav-link"><span class="nav-icon"><svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="18" height="18" rx="4" fill="#7B3D0B"/><rect x="8.25" y="3.5" width="1.5" height="11" fill="white"/><rect x="4" y="7" width="10" height="1.5" fill="white"/></svg></span> ESV Bible API</a>
+      <a href="setup-apple-intelligence.html" class="nav-link"><span class="nav-icon"><span class="ai-icon"></span></span> Apple Intelligence</a>
+      <a href="setup-openai.html" class="nav-link"><span class="nav-icon"><svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="9" cy="9" r="9" fill="#000"/><g transform="translate(9,9)" stroke="white" stroke-width="1.3" fill="none"><ellipse rx="3.2" ry="5.5" transform="rotate(0)"/><ellipse rx="3.2" ry="5.5" transform="rotate(60)"/><ellipse rx="3.2" ry="5.5" transform="rotate(120)"/></g></svg></span> OpenAI</a>
+      <a href="setup-anthropic.html" class="nav-link"><span class="nav-icon">✦</span> Anthropic (Claude)</a>
+      <a href="setup-gemini.html" class="nav-link"><span class="nav-icon">💎</span> Google Gemini</a>
+      <a href="setup-custom.html" class="nav-link"><span class="nav-icon">⚙️</span> Custom Provider</a>
+      <div class="nav-divider"></div>
+      <span class="nav-section-label">Support</span>
+      <a href="contact.html" class="nav-link"><span class="nav-icon">✉️</span> Contact</a>
+    </div>
+  </nav>
+</div>
+
+<div class="shell">
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <img src="img/DailyKairosLogo.png" alt="Daily Kairos" class="sidebar-logo" />
+      <span class="app-name">Daily <a href="kairos.html" class="kairos-egg"><span class="kairos-en">Kairos</span><span class="kairos-gr">Καιρός</span></a></span>
+      <span class="app-tagline">Help &amp; Setup Guide</span>
+    </div>
+    <nav class="sidebar-nav">
+      <span class="nav-section-label">Overview</span>
+      <a href="index.html" class="nav-link"><span class="nav-icon">📖</span> What is Daily Kairos?</a>
+      <div class="nav-divider"></div>
+      <span class="nav-section-label">Setup</span>
+      <a href="setup-esv.html" class="nav-link"><span class="nav-icon"><svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="18" height="18" rx="4" fill="#7B3D0B"/><rect x="8.25" y="3.5" width="1.5" height="11" fill="white"/><rect x="4" y="7" width="10" height="1.5" fill="white"/></svg></span> ESV Bible API</a>
+      <a href="setup-apple-intelligence.html" class="nav-link"><span class="nav-icon"><span class="ai-icon"></span></span> Apple Intelligence</a>
+      <a href="setup-openai.html" class="nav-link"><span class="nav-icon"><svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="9" cy="9" r="9" fill="#000"/><g transform="translate(9,9)" stroke="white" stroke-width="1.3" fill="none"><ellipse rx="3.2" ry="5.5" transform="rotate(0)"/><ellipse rx="3.2" ry="5.5" transform="rotate(60)"/><ellipse rx="3.2" ry="5.5" transform="rotate(120)"/></g></svg></span> OpenAI</a>
+      <a href="setup-anthropic.html" class="nav-link"><span class="nav-icon">✦</span> Anthropic (Claude)</a>
+      <a href="setup-gemini.html" class="nav-link"><span class="nav-icon">💎</span> Google Gemini</a>
+      <a href="setup-custom.html" class="nav-link"><span class="nav-icon">⚙️</span> Custom Provider</a>
+      <div class="nav-divider"></div>
+      <span class="nav-section-label">Support</span>
+      <a href="contact.html" class="nav-link"><span class="nav-icon">✉️</span> Contact</a>
+    </nav>
+  </aside>
+
+  <main class="content">
+    <div class="content-inner">
+
+      <!-- Hero -->
+      <div class="kairos-hero">
+        <div class="kairos-greek-display">Καιρός</div>
+        <div class="kairos-pronunciation">kai · rós &nbsp;·&nbsp; the appointed time</div>
+      </div>
+
+      <!-- Two words for time -->
+      <div class="kairos-section">
+        <p style="margin-bottom: 16px;">
+          The ancient Greeks had two words for time. They are not synonyms.
+        </p>
+        <div class="two-words">
+          <div class="word-card">
+            <div class="wc-greek">Χρόνος</div>
+            <div class="wc-label">Chronos</div>
+            <div class="wc-desc">Sequential, measurable time. The clock ticking. Hours, days, years passing. Time as quantity.</div>
+          </div>
+          <div class="word-card">
+            <div class="wc-greek">Καιρός</div>
+            <div class="wc-label">Kairos</div>
+            <div class="wc-desc">The right moment. The opportune season. The appointed hour when something must happen. Time as quality.</div>
+          </div>
+        </div>
+        <p style="margin-top: 16px;">
+          When the New Testament speaks of time with urgency and purpose, it almost always uses
+          <em>kairos</em>. It is not asking how many hours remain — it is asking whether you are
+          awake to what <em>this</em> moment means.
+        </p>
+      </div>
+
+      <!-- Anchor verse -->
+      <div class="kairos-section">
+        <h2 class="section-title"><span class="section-icon">✦</span> Καιρός in the New Testament</h2>
+        <div class="kairos-verse">
+          <div class="kairos-verse-ref">Mark 1:15 &nbsp;·&nbsp; ESV</div>
+          <div class="kairos-verse-text">"The time is fulfilled, and the kingdom of God is at hand; repent and believe in the gospel."</div>
+          <div class="kairos-verse-greek">Πεπλήρωται ὁ <strong>καιρός</strong>, καὶ ἤγγικεν ἡ βασιλεία τοῦ θεοῦ·</div>
+        </div>
+        <p style="font-size: 0.925rem; color: var(--text-muted); line-height: 1.7;">
+          These are Jesus's very first words in Mark's Gospel — not a gentle introduction but a
+          declaration. The <em>kairos</em> moment has arrived. The long preparation of history is
+          complete. This is the moment everything was moving toward. And it comes with an immediate
+          demand: <em>repent and believe</em>.
+        </p>
+      </div>
+
+      <!-- Big Picture -->
+      <div class="kairos-section">
+        <h2 class="section-title"><span class="section-icon">📖</span> The big picture</h2>
+        <p style="margin-bottom: 24px; color: var(--text-muted); font-size: 0.925rem;">
+          Kairos runs like a thread through all of Scripture. Four movements — and you are living inside the last one.
+        </p>
+
+        <!-- 1 -->
+        <div class="kairos-section">
+          <h3 class="kairos-section-title">
+            <span class="kairos-section-num">1</span>
+            God sets the kairos <span class="kairos-section-arrow">→ history isn't random</span>
+          </h3>
+          <div class="kairos-mini-verse">
+            "But when the fullness of time had come, God sent forth his Son, born of woman, born under the law." — Galatians 4:4
+          </div>
+          <p style="font-size: 0.925rem; color: var(--text-muted); line-height: 1.7;">
+            The Incarnation was not a historical accident. God prepared for it, appointed its moment,
+            and executed it at exactly the right time. No event in history is outside his governance.
+            There are no random moments — only moments whose meaning we do not yet fully see.
+          </p>
+        </div>
+
+        <!-- 2 -->
+        <div class="kairos-section">
+          <h3 class="kairos-section-title">
+            <span class="kairos-section-num">2</span>
+            Jesus fulfills the kairos <span class="kairos-section-arrow">→ the kingdom breaks in</span>
+          </h3>
+          <div class="kairos-mini-verse">
+            "The time is fulfilled, and the kingdom of God is at hand." — Mark 1:15
+          </div>
+          <p style="font-size: 0.925rem; color: var(--text-muted); line-height: 1.7;">
+            The reign of God does not seep in gradually. It arrives. With Jesus, the kairos the
+            prophets had spoken of across centuries finally lands. The kingdom is not merely near
+            in distance — it is near in the sense that it is now breaking into the present order
+            of things. Something has permanently changed.
+          </p>
+        </div>
+
+        <!-- 3 -->
+        <div class="kairos-section">
+          <h3 class="kairos-section-title">
+            <span class="kairos-section-num">3</span>
+            Humans must respond to the kairos <span class="kairos-section-arrow">→ or miss it</span>
+          </h3>
+          <div class="kairos-mini-verse">
+            "...because you did not know the time of your visitation." — Luke 19:44
+          </div>
+          <p style="font-size: 0.925rem; color: var(--text-muted); line-height: 1.7;">
+            Jesus wept over Jerusalem because its people did not recognize their kairos. They were
+            present for the most significant moment in human history and did not perceive it.
+            This is the solemn warning embedded in every kairos: the moment comes with a demand.
+            To miss it — through busyness, distraction, or hardness of heart — is a real and
+            costly tragedy.
+          </p>
+        </div>
+
+        <!-- 4 -->
+        <div class="kairos-section">
+          <h3 class="kairos-section-title">
+            <span class="kairos-section-num">4</span>
+            Believers live attentively within kairos <span class="kairos-section-arrow">→ with urgency and awareness</span>
+          </h3>
+          <div class="kairos-mini-verse">
+            "Look carefully then how you walk... making the best use of the time, because the days are evil." — Ephesians 5:15–16
+          </div>
+          <p style="font-size: 0.925rem; color: var(--text-muted); line-height: 1.7;">
+            The word translated "time" in Ephesians 5:16 is again <em>καιρός</em>. Paul is not
+            simply asking believers to be efficient with their calendar. He is asking them to live
+            with moral and spiritual alertness — to perceive what each moment requires of them and
+            to act. The days have weight. Each one is an opportunity that will not return.
+          </p>
+        </div>
+      </div>
+
+      <!-- Why this app -->
+      <div class="kairos-closing">
+        <p>
+          Every day contains moments of encounter with Scripture — not just information to be
+          processed, but living words that address us, make a claim, offer an invitation, and call
+          for a response.
+        </p>
+        <p>
+          Daily Kairos is built on the belief that your time in the Bible is itself a
+          <em>kairos</em> moment: an appointed meeting between the word of God and exactly where
+          you are right now.
+        </p>
+        <p class="kairos-closing-sign">Go slowly. Read carefully. Respond.</p>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<script>
+  function openDrawer() { document.getElementById('drawer').classList.add('open'); document.body.style.overflow = 'hidden'; }
+  function closeDrawer() { document.getElementById('drawer').classList.remove('open'); document.body.style.overflow = ''; }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawer(); });
+</script>
+</body>
+</html>

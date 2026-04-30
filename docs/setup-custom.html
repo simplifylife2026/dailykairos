@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Custom Provider Setup – Daily Kairos Help</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<header class="mobile-header">
+  <div class="mobile-brand-wrap">
+    <img src="img/DailyKairosLogo.png" alt="" class="mobile-logo" />
+    <span class="mobile-brand">Daily Kairos</span>
+  </div>
+  <button class="hamburger" aria-label="Open menu" onclick="openDrawer()">&#9776;</button>
+</header>
+
+<div class="mobile-nav-drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Navigation">
+  <div class="drawer-backdrop" onclick="closeDrawer()"></div>
+  <nav class="drawer-panel">
+    <div class="sidebar-brand">
+      <img src="img/DailyKairosLogo.png" alt="Daily Kairos" class="sidebar-logo" />
+      <span class="app-name">Daily <a href="kairos.html" class="kairos-egg"><span class="kairos-en">Kairos</span><span class="kairos-gr">Καιρός</span></a></span>
+      <span class="app-tagline">Help &amp; Setup Guide</span>
+    </div>
+    <div class="sidebar-nav">
+      <span class="nav-section-label">Overview</span>
+      <a href="index.html" class="nav-link"><span class="nav-icon">📖</span> What is Daily Kairos?</a>
+      <div class="nav-divider"></div>
+      <span class="nav-section-label">Setup</span>
+      <a href="setup-esv.html" class="nav-link"><span class="nav-icon"><svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="18" height="18" rx="4" fill="#7B3D0B"/><rect x="8.25" y="3.5" width="1.5" height="11" fill="white"/><rect x="4" y="7" width="10" height="1.5" fill="white"/></svg></span> ESV Bible API</a>
+      <a href="setup-apple-intelligence.html" class="nav-link"><span class="nav-icon"><span class="ai-icon"></span></span> Apple Intelligence</a>
+      <a href="setup-openai.html" class="nav-link"><span class="nav-icon"><svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="9" cy="9" r="9" fill="#000"/><g transform="translate(9,9)" stroke="white" stroke-width="1.3" fill="none"><ellipse rx="3.2" ry="5.5" transform="rotate(0)"/><ellipse rx="3.2" ry="5.5" transform="rotate(60)"/><ellipse rx="3.2" ry="5.5" transform="rotate(120)"/></g></svg></span> OpenAI</a>
+      <a href="setup-anthropic.html" class="nav-link"><span class="nav-icon">✦</span> Anthropic (Claude)</a>
+      <a href="setup-gemini.html" class="nav-link"><span class="nav-icon">💎</span> Google Gemini</a>
+      <a href="setup-custom.html" class="nav-link" aria-current="page"><span class="nav-icon">⚙️</span> Custom Provider</a>
+      <div class="nav-divider"></div>
+      <span class="nav-section-label">Support</span>
+      <a href="contact.html" class="nav-link"><span class="nav-icon">✉️</span> Contact</a>
+    </div>
+  </nav>
+</div>
+
+<div class="shell">
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <img src="img/DailyKairosLogo.png" alt="Daily Kairos" class="sidebar-logo" />
+      <span class="app-name">Daily <a href="kairos.html" class="kairos-egg"><span class="kairos-en">Kairos</span><span class="kairos-gr">Καιρός</span></a></span>
+      <span class="app-tagline">Help &amp; Setup Guide</span>
+    </div>
+    <nav class="sidebar-nav">
+      <span class="nav-section-label">Overview</span>
+      <a href="index.html" class="nav-link"><span class="nav-icon">📖</span> What is Daily Kairos?</a>
+      <div class="nav-divider"></div>
+      <span class="nav-section-label">Setup</span>
+      <a href="setup-esv.html" class="nav-link"><span class="nav-icon"><svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="18" height="18" rx="4" fill="#7B3D0B"/><rect x="8.25" y="3.5" width="1.5" height="11" fill="white"/><rect x="4" y="7" width="10" height="1.5" fill="white"/></svg></span> ESV Bible API</a>
+      <a href="setup-apple-intelligence.html" class="nav-link"><span class="nav-icon"><span class="ai-icon"></span></span> Apple Intelligence</a>
+      <a href="setup-openai.html" class="nav-link"><span class="nav-icon"><svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="9" cy="9" r="9" fill="#000"/><g transform="translate(9,9)" stroke="white" stroke-width="1.3" fill="none"><ellipse rx="3.2" ry="5.5" transform="rotate(0)"/><ellipse rx="3.2" ry="5.5" transform="rotate(60)"/><ellipse rx="3.2" ry="5.5" transform="rotate(120)"/></g></svg></span> OpenAI</a>
+      <a href="setup-anthropic.html" class="nav-link"><span class="nav-icon">✦</span> Anthropic (Claude)</a>
+      <a href="setup-gemini.html" class="nav-link"><span class="nav-icon">💎</span> Google Gemini</a>
+      <a href="setup-custom.html" class="nav-link" aria-current="page"><span class="nav-icon">⚙️</span> Custom Provider</a>
+      <div class="nav-divider"></div>
+      <span class="nav-section-label">Support</span>
+      <a href="contact.html" class="nav-link"><span class="nav-icon">✉️</span> Contact</a>
+    </nav>
+  </aside>
+
+  <main class="content">
+    <div class="content-inner">
+
+      <div class="page-header">
+        <p class="page-eyebrow">Setup · AI Provider</p>
+        <h1 class="page-title">Custom Provider</h1>
+        <p class="page-intro">
+          Daily Kairos supports any <strong>OpenAI-compatible API endpoint</strong>, so you can use
+          services like Groq, OpenRouter, or even a self-hosted model. You'll need a Base URL,
+          an API key, and a model name.
+        </p>
+      </div>
+
+      <!-- What you need -->
+      <div class="section">
+        <h2 class="section-title"><span class="section-icon">📋</span> What you'll enter in the app</h2>
+        <div class="card">
+          <div class="steps" style="gap: 14px;">
+            <div class="step">
+              <div class="step-num" style="background: var(--accent-head);">①</div>
+              <div class="step-body">
+                <p><strong>Base URL</strong> — The root endpoint of the provider's API, ending before <code>/chat/completions</code>.<br>
+                Example: <code>https://api.groq.com/openai/v1</code></p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num" style="background: var(--accent-head);">②</div>
+              <div class="step-body">
+                <p><strong>API Key</strong> — Your secret key from the provider's dashboard.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num" style="background: var(--accent-head);">③</div>
+              <div class="step-body">
+                <p><strong>Model Name</strong> — The exact model identifier the provider uses.<br>
+                Example: <code>llama-3.3-70b-versatile</code></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Groq -->
+      <div class="section">
+        <h2 class="section-title"><span class="section-icon">⚡</span> Groq</h2>
+        <p class="text-muted text-small" style="margin-bottom: 16px;">
+          Groq offers extremely fast inference on open-source models like Llama 3. It has a free tier with generous rate limits.
+        </p>
+        <div class="card" style="margin-bottom: 12px;">
+          <p style="margin-bottom: 14px;">Sign in or create a free account at <a href="https://console.groq.com" target="_blank" rel="noopener">console.groq.com</a>, navigate to <strong>API Keys</strong>, and create a new key. Copy it before closing — it's only shown once.</p>
+          <a href="https://console.groq.com/docs/quickstart" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 8px; font-size: 0.9rem; font-weight: 600; color: var(--accent);">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8s3.58 8 8 8 8-3.58 8-8-3.58-8-8-8zm.75 12h-1.5V7h1.5v5zm0-6.5h-1.5v-1.5h1.5v1.5z" fill="currentColor"/></svg>
+            Groq quickstart documentation ↗
+          </a>
+        </div>
+        <div class="card">
+          <p style="margin-bottom: 10px;"><strong>Values to enter in Daily Kairos:</strong></p>
+          <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
+            <tr style="border-bottom: 1px solid var(--border);">
+              <td style="padding: 8px 0; color: var(--text-muted); width: 110px;">Base URL</td>
+              <td style="padding: 8px 0;"><code>https://api.groq.com/openai/v1</code></td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border);">
+              <td style="padding: 8px 0; color: var(--text-muted);">API Key</td>
+              <td style="padding: 8px 0;">Your Groq API key</td>
+            </tr>
+            <tr>
+              <td style="padding: 8px 0; color: var(--text-muted);">Model Name</td>
+              <td style="padding: 8px 0;"><code>llama-3.3-70b-versatile</code> <span class="text-muted text-small">(or another from the <a href="https://console.groq.com/docs/models" target="_blank" rel="noopener">Groq model list</a>)</span></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <!-- OpenRouter -->
+      <div class="section">
+        <h2 class="section-title"><span class="section-icon">🔀</span> OpenRouter</h2>
+        <p class="text-muted text-small" style="margin-bottom: 16px;">
+          OpenRouter is a unified gateway to hundreds of models — GPT-4o, Claude, Gemini, Llama, Mistral, and more — all under a single API key.
+        </p>
+        <div class="card" style="margin-bottom: 12px;">
+          <p style="margin-bottom: 14px;">Sign in or create an account at <a href="https://openrouter.ai" target="_blank" rel="noopener">openrouter.ai</a>, then go to your account <strong>Keys</strong> page and create a new key. Copy it once generated.</p>
+          <a href="https://openrouter.ai/docs/quick-start" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 8px; font-size: 0.9rem; font-weight: 600; color: var(--accent);">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8s3.58 8 8 8 8-3.58 8-8-3.58-8-8-8zm.75 12h-1.5V7h1.5v5zm0-6.5h-1.5v-1.5h1.5v1.5z" fill="currentColor"/></svg>
+            OpenRouter quickstart documentation ↗
+          </a>
+        </div>
+        <div class="card">
+          <p style="margin-bottom: 10px;"><strong>Values to enter in Daily Kairos:</strong></p>
+          <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
+            <tr style="border-bottom: 1px solid var(--border);">
+              <td style="padding: 8px 0; color: var(--text-muted); width: 110px;">Base URL</td>
+              <td style="padding: 8px 0;"><code>https://openrouter.ai/api/v1</code></td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border);">
+              <td style="padding: 8px 0; color: var(--text-muted);">API Key</td>
+              <td style="padding: 8px 0;">Your OpenRouter API key</td>
+            </tr>
+            <tr>
+              <td style="padding: 8px 0; color: var(--text-muted);">Model Name</td>
+              <td style="padding: 8px 0;"><code>openai/gpt-4o</code> <span class="text-muted text-small">(or any ID from <a href="https://openrouter.ai/models" target="_blank" rel="noopener">openrouter.ai/models</a>)</span></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <!-- Entering in app -->
+      <div class="section">
+        <h2 class="section-title"><span class="section-icon">📱</span> Entering a custom provider in Daily Kairos</h2>
+        <div class="steps">
+
+          <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-body">
+              <p>Open <strong>Daily Kairos</strong>, tap the <strong>Settings</strong> icon (⚙️), then tap <strong>AI Provider</strong>. Tap <strong>Add Provider</strong>.</p>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-body">
+              <p>Select <strong>Custom / Advanced</strong> from the provider menu.</p>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-body">
+              <p>Fill in the three fields — <strong>Base URL</strong>, <strong>API Key</strong>, and <strong>Model Name</strong> — using the values from your chosen provider above.</p>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-num">4</div>
+            <div class="step-body">
+              <p>Tap <strong>Verify &amp; Save</strong>. If the connection succeeds, your custom provider will be saved and set as the active provider.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="callout">
+        <div class="callout-title">💡 Any OpenAI-compatible endpoint works</div>
+        If you run a local model (e.g. via Ollama or LM Studio), you can point Daily Kairos at <code>http://localhost:11434/v1</code> or whatever endpoint your server exposes, as long as it speaks the OpenAI Chat Completions API format.
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<script>
+  function openDrawer() { document.getElementById('drawer').classList.add('open'); document.body.style.overflow = 'hidden'; }
+  function closeDrawer() { document.getElementById('drawer').classList.remove('open'); document.body.style.overflow = ''; }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawer(); });
+</script>
+</body>
+</html>
