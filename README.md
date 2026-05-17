@@ -35,4 +35,6 @@ docs/          GitHub Pages source
 
 ## Development
 
-The site is plain HTML/CSS — no build step required. Edit files in `docs/` and push; GitHub Pages deploys automatically from the `main` branch.
+The site is plain HTML/CSS — no build step required. Edit files in `docs/` and push; 
+
+Gate Check: GitHub Pages deploys automatically from the `prod` branch. When you want to publish, make sure you merge main into `prod`.
